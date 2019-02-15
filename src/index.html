@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      :root {
+        --f16Width: 658px;
+      }
+      @keyframes fly {
+        from {
+          transform: translateX(0px);
+        }
+        to {
+          transform: translateX(calc(var(--f16Width) + 100vw));
+        }
+      }
+      body {
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        align-items: center;
+      }
+      img {
+        position: relative;
+        left: calc(var(--f16Width) * -1);
+      }
+      body.fly {
+        animation: fly 1s;
+      }
+    </style>
+    <script>
+      function fly() {
+        document.querySelector('body').classList.add('fly');
+        setTimeout(() => {
+          document.querySelector('body').classList.remove('fly');
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <img src="f16.png">
+  </body>
+</html>
